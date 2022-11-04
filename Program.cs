@@ -82,17 +82,22 @@ public class Utente
         public string Settore { get; set; }
         public bool Disponibile { get; set; }
         public string Scaffale { get; set; }
-    public string autore { get; set; }
+        public string Autore { get; set; }
 
-    public Documento()
+    public Documento(string codice, string titolo, int anno, string settore, string stato, string scaffale, string autore)
         {
-            Titolo = "";
-            autore = "";
-        }
+        Codice = codice;
+        Titolo = titolo;
+        Anno = anno;
+        Settore = settore;
+        Stato = stato;
+        Scaffale = scaffale;
+        Autore = autore;
+    }
 
         public override string ToString()
         {
-            return "Codice: " + Codice + ", Titolo: " + Titolo;
+            return "Titolo: " + Titolo + ", Codice: " + Codice;
         }
     }
 
@@ -101,7 +106,7 @@ public class Utente
     public class Libro : Documento
     {
         public int NumeroPagine { get; set; }
-        public Libro() : base()
+        public Libro() : Documento()
         {
             Codice = "LB" + new Random().Next(10000, 99999).ToString();
             NumeroPagine = new Random().Next(100, 600);
