@@ -80,6 +80,7 @@ public class Utente
         public string Titolo { get; set; }
         public int Anno { get; set; }
         public string Settore { get; set; }
+        public string Stato { get; set; }
         public bool Disponibile { get; set; }
         public string Scaffale { get; set; }
         public string Autore { get; set; }
@@ -95,7 +96,11 @@ public class Utente
         Autore = autore;
     }
 
-        public override string ToString()
+    public Documento()
+    {
+    }
+
+    public override string ToString()
         {
             return "Titolo: " + Titolo + ", Codice: " + Codice;
         }
@@ -106,7 +111,7 @@ public class Utente
     public class Libro : Documento
     {
         public int NumeroPagine { get; set; }
-        public Libro() : Documento()
+        public Libro() : base()
         {
             Codice = "LB" + new Random().Next(10000, 99999).ToString();
             NumeroPagine = new Random().Next(100, 600);
