@@ -20,13 +20,18 @@
 
 // Definisco classi
 
+// definizione oggetto biblioteca
+
+Biblioteca Biblioteca = new Biblioteca();
+
 //classe biblioteca
 public class Biblioteca
 {
-    
+
     //liste
-    public List<Documento> documenti;
-    public List<Utente> utenti;
+    public List<Utente> utenti = new List<Utente>();
+    public List<Documento> documenti = new List<Documento>();
+    public List<Prestito> prestiti = new List<Prestito>();
 
     public Biblioteca()
     {
@@ -149,21 +154,21 @@ public class Utente
 
 public class Prestito
 {
-    public string PrestitoDal { get; }
-    public string PrestitoAl { get; }
+    public string InizioPrestito { get; }
+    public string FinePrestito { get; }
     public Utente Utente { get; set; }
 
     public Documento Documento { get; set; }
-    public Prestito(string prestitoDal, string prestitoAl, Documento documento, Utente utente)
+    public Prestito(string InizioPrestito, string FinePrestito, Documento documento, Utente utente)
     {
-        this.PrestitoDal = prestitoDal;
-        this.PrestitoAl = prestitoAl;
+        this.InizioPrestito = InizioPrestito;
+        this.FinePrestito = FinePrestito;
         this.Documento = documento;
         this.Utente = utente;
 
     }
     public override string ToString()
     {
-        return "prestito dal " + PrestitoDal + " al " + PrestitoAl + ". Per l'utente " + Utente.Cognome + " " + Utente.Nome + ". Del documento " + Documento.Titolo + ".";
+        return "prestito dal " + InizioPrestito + " al " + FinePrestito + ". Per l'utente " + Utente.Cognome + " " + Utente.Nome + ". Del documento " + Documento.Titolo + ".";
     }
 }
