@@ -12,12 +12,13 @@ public class Documento
     public string Titolo { get; set; }
     public int Anno { get; set; }
     public string Settore { get; set; }
-    public string Stato { get; set; }
     public string Scaffale { get; set; }
     public string Autore { get; set; }
 
-    // disponibilità del documento   
-    public bool Disponibile { get; set; }
+    //Disponibilità documento
+    public string Stato { get; set; }
+
+
 
     public Documento(string codice, string titolo, int anno, string settore, string stato, string scaffale, string autore)
     {
@@ -46,7 +47,7 @@ public class Documento
 public class Libro : Documento
 {
     public int NumeroPagine { get; set; }
-    public Libro() : base()
+    public Libro(string codice, string titolo, int anno, string settore, string stato, string scaffale, string autore, int NumeroPagine) : base(codice, titolo, anno, settore, stato, scaffale, autore)
     {
         Codice = "LB" + new Random().Next(10000, 99999).ToString();
         NumeroPagine = new Random().Next(100, 600);
@@ -64,7 +65,7 @@ public class Libro : Documento
 public class Dvd : Documento
 {
     public int Durata { get; set; }
-    public Dvd() : base()
+    public Dvd(string codice, string titolo, int anno, string settore, string stato, string scaffale, string autore, int durata) : base(codice, titolo, anno, settore, stato, scaffale, autore)
     {
         Codice = "DV" + new Random().Next(10000, 99999).ToString();
         Durata = new Random().Next(30, 120);

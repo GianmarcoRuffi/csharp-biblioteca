@@ -27,26 +27,67 @@ Biblioteca Biblioteca = new Biblioteca();
 //classe biblioteca
 public class Biblioteca
 {
+    string[] nomi = { "Andrea", "Vincenzo", "Giorgio", "Mattia" };
+    string[] cognomi = { "Ferlin", "Aspromonte", "Floris", "Congiu" };
+    string[] email = { "ferlin@outlook.it", "vinjinzo@outlook.it", "flowers@outlook.it", "maty@outlook.it" };
+    int[] telefono = { 330176382, 3298728, 260109149, 32089028 };
+    string[] codice = { "45346634643", "6346346436", "255235135325", "25325252532" };
+    string[] codiceISBN = { "3463463463463", "2346366363463", "64663642464256", "3463462462624" };
+    string[] titoloDVD = { "Riddick", "Troy", "National Geographic", "Le religioni del mondo" };
+    string[] titoloLibri = { "2001: Odissea nello spazio", "Giallo", "Storia", "Geografia" };
+    int[] anno = { 1968, 1990, 2000, 2010 };
+    string[] settore = { "Fantascienza", "Mistero", "Scolastico", "Scolastico" };
+    bool[] stato = { true, false, false, true};
+    string[] scaffale = { "1A", "22", "CC", "Y6" };
+    string[] autore = { "Arthur C. Clarke", "Autore1", "Autore2", "Autore3" };
+    int[] durata = { 100, 200, 300, 400 };
+    int[] pagine = { 400, 400, 200, 100 };
 
     //liste
     public List<Utente> utenti = new List<Utente>();
     public List<Documento> documenti = new List<Documento>();
     public List<Prestito> prestiti = new List<Prestito>();
 
+
     public Biblioteca()
     {
-        string[] utentiRegistrati = { "Filippo", "Ezio", "Ignazio", "Alessandro", "Davide" };
-        documenti = new List<Documento>();
-        utenti = new List<Utente>();
-        for (int i = 0; i < 10; i++)
+        users = new Utente[4];
+        dvd = new Dvd[4];
+        libri = new Libro[4];
+        prestitiDVD = new Prestito[4];
+        prestitiLibri = new Prestito[4];
+
+        for (int i = 0; i < 4; i++)
         {
-            documenti.Add(new Libro());
-            documenti.Add(new Dvd());
+            users[i] = new Utente(nomi[i], cognomi[i], email[i], telefono[i]);
+            utenti.Add(users[i]);
+            dvd[i] = new Dvd(codice[i], titoloDVD[i], anno[i], settore[i], stato, scaffale[i], autore[i], durata[i]);
+            libri[i] = new Libro(codiceISBN[i], titoloLibri[i], anno[i], settore[i], stato, scaffale[i], autore[i], pagine[i]);
+
+            documenti.Add(dvd[i]);
+            documenti.Add(libri[i]);
+            prestitiDVD[i] = new Prestito("", "", dvd[i], users[i]);
+            prestitiLibri[i] = new Prestito("", "", libri[i], users[i]);
+            prestiti.Add(prestitiDVD[i]);
+            prestiti.Add(prestitiLibri[i]);
+
         }
-        for (int i = 0; i < utentiRegistrati.Length; i++)
-        {
-            utenti.Add(new Utente(utentiRegistrati[i]));
-        }
+
     }
+    public Utente[] users;
+    public Dvd[] dvd;
+    public Libro[] libri;
+    public Prestito[] prestitiDVD;
+    public Prestito[] prestitiLibri;
+
+
+    public void Prestiti(string inizioPrestito, string finePrestito, string titoloRicerca, Documento documentoPrestito, bool Disponibile)
+    {
+        
+
+    }
+
+    
+
 }
 
