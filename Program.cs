@@ -81,9 +81,11 @@ public class Utente
         public int Anno { get; set; }
         public string Settore { get; set; }
         public string Stato { get; set; }
-        public bool Disponibile { get; set; }
         public string Scaffale { get; set; }
         public string Autore { get; set; }
+
+    // disponibilità del documento   
+    public bool Disponibile { get; set; }
 
     public Documento(string codice, string titolo, int anno, string settore, string stato, string scaffale, string autore)
         {
@@ -94,6 +96,7 @@ public class Utente
         Stato = stato;
         Scaffale = scaffale;
         Autore = autore;
+       
     }
 
     public Documento()
@@ -141,4 +144,26 @@ public class Utente
         }
     }
 
-    
+
+// classe prestito
+
+public class Prestito
+{
+    public string PrestitoDal { get; }
+    public string PrestitoAl { get; }
+    public Utente Utente { get; set; }
+
+    public Documento Documento { get; set; }
+    public Prestito(string prestitoDal, string prestitoAl, Documento documento, Utente utente)
+    {
+        this.PrestitoDal = prestitoDal;
+        this.PrestitoAl = prestitoAl;
+        this.Documento = documento;
+        this.Utente = utente;
+
+    }
+    public override string ToString()
+    {
+        return "prestito dal " + PrestitoDal + " al " + PrestitoAl + ". Per l'utente " + Utente.Cognome + " " + Utente.Nome + ". Del documento " + Documento.Titolo + ".";
+    }
+}
