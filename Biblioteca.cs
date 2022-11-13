@@ -3,6 +3,9 @@
 
     public List<Documento> documenti;
     public List<Utente> utenti;
+    Biblioteca biblioteca = new Biblioteca();
+
+
 
     public Biblioteca()
 
@@ -18,7 +21,7 @@
         int[] anno = { 1968, 1990, 2000, 2010 };
         string[] settore = { "Fantascienza", "Mistero", "Scolastico", "Scolastico" };
         bool[] stato = { true, false, false, true };
-        string[] scaffale = { "1A", "22", "CC", "Y6" };
+        string[] scaffale = { "1A", "3B", "2C", "Y6" };
         string[] autore = { "Arthur C. Clarke", "Autore1", "Autore2", "Autore3" };
         int[] durata = { 100, 200, 300, 400 };
         int[] pagine = { 400, 400, 200, 100 };
@@ -27,7 +30,26 @@
     }
 
 
-    
+    public Documento CercaDocumentoTitolo(string titolo)
+    {
+        foreach (Documento documento in documenti)
+        {
+            if (documento.Titolo == titolo)
+                return documento;
+        }
+        return null;
+    }
+
+    public Documento CercaDocumentoCodice(string codice)
+    {
+        foreach (Documento documento in documenti)
+        {
+            if (documento.Codice == codice)
+                return documento;
+        }
+        return null;
+    }
+
 
 }
 
