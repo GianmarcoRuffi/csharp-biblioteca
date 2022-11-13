@@ -1,30 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿public class Utente
 
-//classe utente
-public class Utente
 {
-    private string v;
-
-    public string Nome { get; private set; }
-    public string Cognome { get; private set; }
-
-    public string Email { get; set; }
-    public int Telefono { get; set; }
-
-    public Utente(string nome, string cognome, string email, int telefono)
+    public string Nome { get; set; }
+    public string Cognome { get; }
+    public string Email { get; }
+    public string Password { get; }
+    public string Telefono { get; }
+    public Utente(string nome, string cognome, string email, string password, string telefono)
     {
         Nome = nome;
         Cognome = cognome;
         Email = email;
+        Password = password;
         Telefono = telefono;
     }
 
-    public Utente(string v)
-    {
-        this.v = v;
-    }
 }

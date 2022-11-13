@@ -15,13 +15,6 @@
 //Il bibliotecario deve poter eseguire delle ricerche per codice o per titolo e, eventualmente, effettuare dei prestiti registrando il periodo (Dal/Al) del prestito e il documento.
 //Deve essere possibile effettuare la ricerca dei prestiti dato nome e cognome di un cliente.
 
-
-
-
-// Definisco classi
-
-// definizione oggetto biblioteca
-
 Biblioteca Biblioteca = new Biblioteca();
 
 //classe biblioteca
@@ -49,43 +42,6 @@ public class Biblioteca
     public List<Prestito> prestiti = new List<Prestito>();
 
 
-    public Biblioteca()
-    {
-        users = new Utente[4];
-        dvd = new Dvd[4];
-        libri = new Libro[4];
-        prestitiDVD = new Prestito[4];
-        prestitiLibri = new Prestito[4];
-
-        for (int i = 0; i < 4; i++)
-        {
-            users[i] = new Utente(nomi[i], cognomi[i], email[i], telefono[i]);
-            utenti.Add(users[i]);
-            dvd[i] = new Dvd(codice[i], titoloDVD[i], anno[i], settore[i], stato, scaffale[i], autore[i], durata[i]);
-            libri[i] = new Libro(codiceISBN[i], titoloLibri[i], anno[i], settore[i], stato, scaffale[i], autore[i], pagine[i]);
-
-            documenti.Add(dvd[i]);
-            documenti.Add(libri[i]);
-            prestitiDVD[i] = new Prestito("", "", dvd[i], users[i]);
-            prestitiLibri[i] = new Prestito("", "", libri[i], users[i]);
-            prestiti.Add(prestitiDVD[i]);
-            prestiti.Add(prestitiLibri[i]);
-
-        }
-
-    }
-    public Utente[] users;
-    public Dvd[] dvd;
-    public Libro[] libri;
-    public Prestito[] prestitiDVD;
-    public Prestito[] prestitiLibri;
-
-
-    public void Prestiti(string inizioPrestito, string finePrestito, string titoloRicerca, Documento documentoPrestito, bool Disponibile)
-    {
-        
-
-    }
 
     
 

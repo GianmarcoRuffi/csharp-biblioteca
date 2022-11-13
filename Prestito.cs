@@ -1,28 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-// classe prestito
+﻿// classe prestito
 
 public class Prestito
 {
-    public string InizioPrestito { get; }
-    public string FinePrestito { get; }
     public Utente Utente { get; set; }
-
     public Documento Documento { get; set; }
-    public Prestito(string InizioPrestito, string FinePrestito, Documento documento, Utente utente)
+    public string InizioPrestito { get; set; }
+    public string FinePrestito { get; set; }
+    public Prestito(Utente utente, Documento documento, string inizioPrestito, string finePrestito)
+
     {
-        this.InizioPrestito = InizioPrestito;
-        this.FinePrestito = FinePrestito;
-        this.Documento = documento;
-        this.Utente = utente;
+        Utente = utente ?? throw new ArgumentNullException(nameof(utente));
+        Documento = documento ?? throw new ArgumentNullException(nameof(documento));
+        InizioPrestito = inizioPrestito ?? throw new ArgumentNullException(nameof(inizioPrestito));
+        FinePrestito = finePrestito ?? throw new ArgumentNullException(nameof(finePrestito));
 
     }
-    public override string ToString()
-    {
-        return "prestito dal " + InizioPrestito + " al " + FinePrestito + ". Per l'utente " + Utente.Cognome + " " + Utente.Nome + ". Del documento " + Documento.Titolo + ".";
-    }
+
+    //public override string ToString()
+    //{
+    //    return "prestito dal " + InizioPrestito + " al " + FinePrestito + ". Per l'utente " + Utente.Cognome + " " + Utente.Nome + ". Del documento " + Documento.Titolo + ".";
+    //}
 }
