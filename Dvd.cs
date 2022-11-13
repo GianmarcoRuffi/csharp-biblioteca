@@ -8,11 +8,3 @@
 
     }
 }
-
-//Codice = "DV" + new Random().Next(10000, 99999).ToString();
-//Durata = new Random().Next(30, 120);
-
-//public override string ToString()
-//{
-//    return "Numero Seriale: " + Codice + ", Titolo: " + Titolo;
-//}

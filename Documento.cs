@@ -9,8 +9,6 @@
     //Disponibilità documento
     public bool Disponibile { get; set; }
 
-
-    //costruttore
     public Documento(string codice, string titolo, int anno, string settore, string scaffale, string autore)
     {
         Codice = codice;
@@ -28,3 +26,14 @@
         return "Titolo: " + Titolo + ", Codice: " + Codice;
     }
 }
+
+
+//Pagine = new Random().Next(100, 600);
+//codice = "BK" + new Random().Next(10000, 99999).ToString();
+//Codice = "DV" + new Random().Next(10000, 99999).ToString();
+//Durata = new Random().Next(30, 120);
+
+//public override string ToString()
+//{
+//    return "Numero Seriale: " + Codice + ", Titolo: " + Titolo;
+//}
